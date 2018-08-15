@@ -22,9 +22,9 @@ contract('PacktToken', async (accounts) => {
     assert.equal(balance, 1000000, 'allocates the initial balance to the owner');
   });
 
-  it ('transfers tokens', async () => {
-    let instance = await PacktToken.deployed();
-
-  });
+  // it ('transfers tokens', async () => {
+  //   let instance = await PacktToken.deployed();
+  //
+  // });
 
 });

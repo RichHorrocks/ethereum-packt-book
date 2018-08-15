@@ -6,6 +6,7 @@ import "./SafeMath.sol";
 contract PacktTokenSale {
     PacktToken public tokenContract;
     uint256 public tokenPrice;
+    uint256 public tokensSold;
     address owner;
 
     event Sell(address indexed _buyer, uint256 indexed _amount);
@@ -21,9 +22,9 @@ contract PacktTokenSale {
         payable
     {
         require(msg.value == SafeMath.mul(_numberOfTokens, tokenPrice));
-
         require(tokenContract.balanceOf(this) >= _numberOfTokens);
 
+        tokensSold += _numberOfTokens;
         emit Sell(msg.sender, _numberOfTokens);
 
         require(tokenContract.transfer(msg.sender, _numberOfTokens));
@@ -31,17 +32,8 @@ contract PacktTokenSale {
 
     function endSale() public {
         require(msg.sender == owner);
-
         require(tokenContract.transfer(owner, tokenContract.balanceOf(this)));
 
         msg.sender.transfer(address(this).balance);
-    }
-
-    function safeMultiply(uint256 x, uint256 y)
-        internal
-        pure
-        returns (uint z)
-    {
-        require(y == 0 || (z = x * y) / y == x);
     }
 }

@@ -26,7 +26,7 @@ module.exports = {
       port: 8545,
       network_id: "4", // Rinkeby
       from: "0x52f0995a00472a988ab3b4bee04c6085c8a20049",
-      gas: 4812388,
+      gas: 4612388,
     },
   },
 };
