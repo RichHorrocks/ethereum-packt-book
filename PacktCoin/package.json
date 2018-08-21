@@ -2,7 +2,7 @@
   "name": "packtcoin",
   "version": "1.0.0",
   "description": "\"Packt Token Sale ICO\"",
-  "main": "truffle.js",
+  "main": "app.js",
   "directories": {
     "test": "test"
   },
